@@ -35,7 +35,7 @@ repositories {
     mavenCentral()
     maven("https://repo.spongepowered.org/maven/")
     // If you don't want to log in with your real minecraft account, remove this line
-    maven("https://pkgs.dev.azure.com/djtheredstoner/DevAuth/_packaging/public/maven/v1")
+//    maven("https://pkgs.dev.azure.com/djtheredstoner/DevAuth/_packaging/public/maven/v1")
 }
 
 val shadowImpl by configurations.creating {
@@ -52,7 +52,7 @@ dependencies {
     shadowImpl("com.neovisionaries:nv-websocket-client:2.14")
 
     // If you don't want to log in with your real minecraft account, remove this line
-    modRuntimeOnly("me.djtheredstoner:DevAuth-forge-legacy:1.1.0")
+//    modRuntimeOnly("me.djtheredstoner:DevAuth-forge-legacy:1.1.0")
 
 }
 

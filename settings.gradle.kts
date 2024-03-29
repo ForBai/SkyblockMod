@@ -19,3 +19,5 @@ pluginManagement {
 }
 
 rootProject.name = "CoflMod"
+include("core")
+include("minecraft")
