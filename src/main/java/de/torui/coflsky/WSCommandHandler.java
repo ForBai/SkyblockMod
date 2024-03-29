@@ -10,6 +10,7 @@ import de.torui.coflsky.commands.RawCommand;
 import de.torui.coflsky.commands.models.*;
 import de.torui.coflsky.configuration.ConfigurationManager;
 import de.torui.coflsky.handlers.EventRegistry;
+import de.torui.coflsky.minecraft_integration.CountdownTimer;
 import de.torui.coflsky.proxy.ProxyManager;
 import de.torui.coflsky.utils.FileUtils;
 import de.torui.coflsky.commands.models.TimerData;
@@ -149,7 +150,7 @@ public class WSCommandHandler {
      * Starts a countdown
      */
     private static void StartTimer(Command<TimerData> cmd) {
-        de.torui.coflsky.CountdownTimer.startCountdown(cmd.getData());
+        CountdownTimer.startCountdown(cmd.getData());
     }
 
     public static void Execute(String cmd, Entity sender) {

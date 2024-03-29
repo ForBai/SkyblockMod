@@ -1,4 +1,4 @@
-package de.torui.coflsky.proxy;
+package de.torui.core.proxy;
 
 import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;

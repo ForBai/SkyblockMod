@@ -50,6 +50,8 @@ dependencies {
     annotationProcessor("org.spongepowered:mixin:0.8.4-SNAPSHOT")
 
     shadowImpl("com.neovisionaries:nv-websocket-client:2.14")
+    shadowImpl(project(":core"))
+    implementation(project(":core"))
 
     // If you don't want to log in with your real minecraft account, remove this line
 //    modRuntimeOnly("me.djtheredstoner:DevAuth-forge-legacy:1.1.0")

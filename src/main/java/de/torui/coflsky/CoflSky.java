@@ -2,7 +2,6 @@ package de.torui.coflsky;
 
 
 import java.io.File;
-import java.net.URISyntaxException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
@@ -11,7 +10,7 @@ import de.torui.coflsky.configuration.LocalConfig;
 import de.torui.coflsky.gui.GUIType;
 import de.torui.coflsky.handlers.EventRegistry;
 import de.torui.coflsky.listeners.ChatListener;
-import de.torui.coflsky.proxy.APIKeyManager;
+import de.torui.core.proxy.APIKeyManager;
 import de.torui.coflsky.gui.tfm.ButtonRemapper;
 import de.torui.coflsky.gui.tfm.ChatMessageSendHandler;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;

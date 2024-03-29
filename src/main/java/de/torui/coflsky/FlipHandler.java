@@ -1,7 +1,10 @@
 package de.torui.coflsky;
 
 import de.torui.coflsky.commands.models.FlipData;
-import java.util.*;
+
+import java.util.Map;
+import java.util.Timer;
+import java.util.TimerTask;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class FlipHandler {

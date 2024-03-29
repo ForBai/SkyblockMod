@@ -1,17 +1,11 @@
-package de.torui.coflsky;
+package de.torui.coflsky.minecraft_integration;
 
+import de.torui.coflsky.commands.models.TimerData;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
-import net.minecraft.client.gui.GuiChat;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.GlStateManager;
-import net.minecraft.client.settings.KeyBinding;
-import net.minecraftforge.fml.client.registry.ClientRegistry;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
-import net.minecraftforge.fml.common.gameevent.InputEvent;
 import net.minecraftforge.fml.common.gameevent.TickEvent;
-import de.torui.coflsky.commands.models.TimerData;
-import org.lwjgl.input.Keyboard;
 
 import java.util.Locale;
 
@@ -30,8 +24,8 @@ public class CountdownTimer {
     }
 
     public static void onRenderTick(TickEvent.RenderTickEvent event) {
-            if (currentEndTime - System.currentTimeMillis() > 0)
-                drawTimer();
+        if (currentEndTime - System.currentTimeMillis() > 0)
+            drawTimer();
     }
 
     /**
@@ -53,7 +47,7 @@ public class CountdownTimer {
      * @param maxPrecision     length of the seconds in the timer
      */
     public static void startCountdown(double seconds, int widthPercentage, int heightPercentage, double fontScale, String prefix, int maxPrecision) {
-		System.out.println("###Starting countdown " + seconds);
+        System.out.println("###Starting countdown " + seconds);
         currentEndTime = (long) (System.currentTimeMillis() + (seconds * 1000));
         currentWidth = widthPercentage;
         currentHeight = heightPercentage;
@@ -63,7 +57,7 @@ public class CountdownTimer {
     }
 
     public static void startCountdown(TimerData data) {
-        startCountdown(data.seconds, data.width, data.height, data.scale, data.prefix, data.maxPrecision );
+        startCountdown(data.seconds, data.width, data.height, data.scale, data.prefix, data.maxPrecision);
     }
 
     private static void drawTimer() {
@@ -74,8 +68,8 @@ public class CountdownTimer {
 
         GlStateManager.pushMatrix();
         GlStateManager.scale(currentScale, currentScale, currentScale);
-        int scaledX = (int) (scaled.getScaledWidth() * (currentWidth / 100D)  / currentScale);
-        int scaledY = (int) (scaled.getScaledHeight() * (currentHeight / 100D)  / currentScale);
+        int scaledX = (int) (scaled.getScaledWidth() * (currentWidth / 100D) / currentScale);
+        int scaledY = (int) (scaled.getScaledHeight() * (currentHeight / 100D) / currentScale);
         drawHVCenteredString(currentPrefix + render, scaledX, scaledY);
         GlStateManager.popMatrix();
     }
@@ -87,8 +81,8 @@ public class CountdownTimer {
             render = String.valueOf((int) seconds);
         } else {
             render = String.format(Locale.US, "%.3f", seconds).substring(0, currentPrecision);
-            if(render.charAt(render.length() - 1) == '.')
-                render = render.substring(0, currentPrecision -1);
+            if (render.charAt(render.length() - 1) == '.')
+                render = render.substring(0, currentPrecision - 1);
         }
 
         return render + "s";

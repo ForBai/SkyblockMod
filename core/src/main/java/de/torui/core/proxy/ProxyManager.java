@@ -1,4 +1,4 @@
-package de.torui.coflsky.proxy;
+package de.torui.core.proxy;
 
 import de.torui.coflsky.CoflSky;
 import de.torui.coflsky.commands.models.ProxyRequest;
