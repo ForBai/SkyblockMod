@@ -1,6 +1,6 @@
 package de.torui.coflsky.minecraft_integration;
 
-import de.torui.coflsky.commands.models.TimerData;
+import de.torui.core.commands.models.TimerData;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.ScaledResolution;

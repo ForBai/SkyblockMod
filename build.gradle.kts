@@ -50,6 +50,7 @@ dependencies {
     annotationProcessor("org.spongepowered:mixin:0.8.4-SNAPSHOT")
 
     shadowImpl("com.neovisionaries:nv-websocket-client:2.14")
+
     shadowImpl(project(":core"))
     implementation(project(":core"))
 

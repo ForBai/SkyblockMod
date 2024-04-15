@@ -1,4 +1,4 @@
-package de.torui.coflsky.commands;
+package de.torui.core.commands;
 
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;

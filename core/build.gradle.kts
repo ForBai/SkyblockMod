@@ -1,17 +1,23 @@
 plugins {
-    id("java")
+    idea
+    java
 }
 
 group = "de.torui.coflsky-core"
 version = "1.5.5-alpha"
+
+java {
+    toolchain.languageVersion.set(JavaLanguageVersion.of(8))
+}
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    testImplementation(platform("org.junit:junit-bom:5.9.1"))
-    testImplementation("org.junit.jupiter:junit-jupiter")
+    implementation("com.google.code.gson:gson:2.8.6")
+    implementation("com.neovisionaries:nv-websocket-client:2.14")
+
 }
 
 tasks.test {

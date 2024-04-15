@@ -1,4 +1,4 @@
-package de.torui.coflsky.commands;
+package de.torui.core.commands;
 
 import java.lang.reflect.Field;
 import java.util.HashMap;

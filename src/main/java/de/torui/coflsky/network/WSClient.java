@@ -5,9 +5,9 @@ import com.google.gson.GsonBuilder;
 import com.neovisionaries.ws.client.*;
 import de.torui.coflsky.CoflSky;
 import de.torui.coflsky.WSCommandHandler;
-import de.torui.coflsky.commands.Command;
-import de.torui.coflsky.commands.JsonStringCommand;
-import de.torui.coflsky.commands.RawCommand;
+import de.torui.core.commands.Command;
+import de.torui.core.commands.JsonStringCommand;
+import de.torui.core.commands.RawCommand;
 import net.minecraft.client.Minecraft;
 
 import java.io.IOException;

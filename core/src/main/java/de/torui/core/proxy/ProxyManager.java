@@ -1,7 +1,6 @@
 package de.torui.core.proxy;
 
-import de.torui.coflsky.CoflSky;
-import de.torui.coflsky.commands.models.ProxyRequest;
+import de.torui.core.commands.models.ProxyRequest;
 
 import java.io.*;
 import java.net.HttpURLConnection;
@@ -11,14 +10,17 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class ProxyManager {
-    private final String ProxyResponseUrl = "http://sky.coflnet.com/api/data/proxy";
+    private String ProxyResponseUrl = "http://sky.coflnet.com/api/data/proxy";
     private final ExecutorService requestExecutor = Executors.newSingleThreadExecutor();
 
+    public void setProxyResponseUrl(String url) {
+        this.ProxyResponseUrl = url;
+    }
 
-    public void handleRequestAsync(ProxyRequest request){
-         CompletableFuture<String> req = this.doRequest(request.getUrl());
-        if(request.isUploadEnabled()) {
-            req.thenAcceptAsync(res -> this.uploadData(res,request.getId()));
+    public void handleRequestAsync(ProxyRequest request) {
+        CompletableFuture<String> req = this.doRequest(request.getUrl());
+        if (request.isUploadEnabled()) {
+            req.thenAcceptAsync(res -> this.uploadData(res, request.getId()));
         }
     }
 
@@ -33,16 +35,16 @@ public class ProxyManager {
             }
             String resString = result.toString("UTF-8");
             return resString;
-        } catch(IOException e){
+        } catch (IOException e) {
             return null;
         }
     }
 
-    public void uploadData(String data,String id){
+    public void uploadData(String data, String id) {
         this.requestExecutor.submit(new Runnable() {
             @Override
             public void run() {
-                try{
+                try {
                     URL url = new URL(ProxyManager.this.ProxyResponseUrl);
                     HttpURLConnection con = (HttpURLConnection) url.openConnection();
                     con.setRequestMethod("POST");
@@ -57,7 +59,7 @@ public class ProxyManager {
                     os.close();
                     String response = getString(con);
                     System.out.println("Response=" + response);
-                }catch (Exception exception){
+                } catch (Exception exception) {
                     exception.printStackTrace();
                 }
             }
@@ -65,28 +67,27 @@ public class ProxyManager {
     }
 
 
-    private CompletableFuture<String> doRequest(String targetUrl){
+    private CompletableFuture<String> doRequest(String targetUrl) {
         CompletableFuture<String> future = new CompletableFuture<>();
 
         this.requestExecutor.submit(new Runnable() {
             @Override
             public void run() {
-                try{
+                try {
                     URL url = new URL(targetUrl);
                     HttpURLConnection con = (HttpURLConnection) url.openConnection();
                     con.setRequestMethod("GET");
                     con.setRequestProperty("Accept", "application/json");
                     con.setRequestProperty("User-Agent", "CoflMod");
 
-                    String key = CoflSky.getAPIKeyManager().getApiInfo().key;
-
-                    if(targetUrl.startsWith("https://api.hypixel.net") && !key.isEmpty()){
-                        con.setRequestProperty("API-Key", key);
-                    }
+//                    String key = CoflSky.getAPIKeyManager().getApiInfo().key;
+//                    if(targetUrl.startsWith("https://api.hypixel.net") && !key.isEmpty()){
+//                        con.setRequestProperty("API-Key", key);
+//                    }
 
                     con.setDoInput(true);
                     future.complete(getString(con));
-                }catch (Exception exception){
+                } catch (Exception exception) {
                     exception.printStackTrace();
                 }
             }

@@ -16,6 +16,7 @@ import de.torui.coflsky.commands.JsonStringCommand;
 import de.torui.coflsky.commands.models.AuctionData;
 import de.torui.coflsky.commands.models.FlipData;
 import de.torui.coflsky.configuration.Configuration;
+import de.torui.coflsky.minecraft_integration.CountdownTimer;
 import de.torui.coflsky.network.WSClient;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.inventory.GuiChest;
@@ -238,7 +239,7 @@ public class EventRegistry {
 
     @SubscribeEvent
     public void OnRenderTick(TickEvent.RenderTickEvent event) {
-        de.torui.coflsky.CountdownTimer.onRenderTick(event);
+        CountdownTimer.onRenderTick(event);
     }
 
     long UpdateThisTick = 0;

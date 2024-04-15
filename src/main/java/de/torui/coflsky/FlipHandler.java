@@ -1,6 +1,6 @@
 package de.torui.coflsky;
 
-import de.torui.coflsky.commands.models.FlipData;
+import de.torui.core.commands.models.FlipData;
 
 import java.util.Map;
 import java.util.Timer;

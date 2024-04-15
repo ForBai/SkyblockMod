@@ -2,8 +2,8 @@ package de.torui.coflsky.network;
 
 import com.neovisionaries.ws.client.WebSocketException;
 import de.torui.coflsky.CoflSky;
-import de.torui.coflsky.commands.Command;
-import de.torui.coflsky.commands.RawCommand;
+import de.torui.core.commands.Command;
+import de.torui.core.commands.RawCommand;
 import de.torui.coflsky.minecraft_integration.CoflSessionManager;
 import de.torui.coflsky.minecraft_integration.PlayerDataProvider;
 import net.minecraft.client.Minecraft;
